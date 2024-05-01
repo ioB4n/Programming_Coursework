@@ -1,3 +1,11 @@
+/**
+ * The MP3 class is a child class of the Gadget class.
+ * It holds attributes and methods that resemble a real MP3 device.
+ *
+ * @author (Ion Bogza)
+ * @version (01/05/2024)
+ */
+
 //importing java.util.ArrayList to be able to use ArrayLists.
 import java.util.ArrayList;
 //importing java.util.Iterator to be able to use the Iterator function.

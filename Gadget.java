@@ -1,3 +1,11 @@
+/**
+ * The Gadget class is the used as a superclass for the Mobile class and MP3 class.
+ * It holds the attributes and methods shared between the two subclasses.
+ * 
+ * @author (Ion Bogza)
+ * @version (01/05/2024)
+ */
+
 //The Gadget class is the used as a superclass for the Mobile class and MP3 class.
 //It holds the atributes and methods shared between the two subclasses.
 public class Gadget

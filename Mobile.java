@@ -1,4 +1,12 @@
-//importing java.util.ArrayList to be able to use ArrayLists.
+/**
+ * The Mobile class is a child class of the Gadget class.
+ * It contains attributes and methods that resemble a real mobile device.
+ *
+ * @author (Ion Bogza)
+ * @version (01/05/2024)
+ */
+
+//Importing java.util.ArrayList to get access to using ArrayLists.
 import java.util.ArrayList;
 
 //The Mobile class extends or is a subclass of the Gadget class.

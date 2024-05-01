@@ -1,3 +1,11 @@
+/**
+ * The GadgetShop class is used for the implementation of the GUI.
+ * It is mainly used to create the list of gadgets and to enable a user to create and perform certain operations with said gadgets.
+ *
+ * @author (Ion Bogza)
+ * @version (01/05/2024)
+ */
+
 //Importing swing, awt, and awt.event to get access to the requiered GUI tool kit and Action Listener.
 import javax.swing.*;
 import java.awt.event.*;
@@ -37,16 +45,16 @@ public class GadgetShop implements ActionListener
     private JButton displaySongsBtn;
     
     //Declaring the names, types and access levels of the soon to be used text fields.
-    private JTextField modelFld1;
-    private JTextField sizeFld1;
-    private JTextField weightFld1;
-    private JTextField priceFld1;
-    private JTextField indexFld1;
-    private JTextField modelFld2;
-    private JTextField sizeFld2;
-    private JTextField weightFld2;
-    private JTextField priceFld2;
-    private JTextField indexFld2;
+    private JTextField mobileModelFld;
+    private JTextField mobileSizeFld;
+    private JTextField mobileWeightFld;
+    private JTextField mobilePriceFld;
+    private JTextField mobileIndexFld;
+    private JTextField mp3ModelFld;
+    private JTextField mp3SizeFld;
+    private JTextField mp3WeightFld;
+    private JTextField mp3PriceFld;
+    private JTextField mp3IndexFld;
     private JTextField memoryFld;
     private JTextField creditFld;
     private JTextField phoneNumberFld;
@@ -150,8 +158,8 @@ public class GadgetShop implements ActionListener
                     JLabel modelLabel = new JLabel("Model");
                     top1.add(modelLabel);
                     
-                    modelFld1 = new JTextField(10);
-                    top1.add(modelFld1);
+                    mobileModelFld = new JTextField(10);
+                    top1.add(mobileModelFld);
                 
                 Container top2 = new Container();
                 top2.setLayout(new GridLayout(2,1));
@@ -160,8 +168,8 @@ public class GadgetShop implements ActionListener
                     JLabel sizeLabel = new JLabel("Size [inches]");
                     top2.add(sizeLabel);
                     
-                    sizeFld1 = new JTextField(10);
-                    top2.add(sizeFld1);
+                    mobileSizeFld = new JTextField(10);
+                    top2.add(mobileSizeFld);
                 
                 Container top3 = new Container();
                 top3.setLayout(new GridLayout(2,1));
@@ -170,24 +178,24 @@ public class GadgetShop implements ActionListener
                     JLabel weightLabel = new JLabel("Weight [grams]");
                     top3.add(weightLabel);
                     
-                    weightFld1 = new JTextField(10);
-                    top3.add(weightFld1);
+                    mobileWeightFld = new JTextField(10);
+                    top3.add(mobileWeightFld);
                 
                 Container top4 = new Container();
                 top4.setLayout(new GridLayout(2,1));
                 top.add(top4);
                 
-                    JLabel priceLabel = new JLabel("Price [Â£]");
+                    JLabel priceLabel = new JLabel("Price [£]");
                     top4.add(priceLabel);
                     
-                    priceFld1 = new JTextField(10);
-                    top4.add(priceFld1);
+                    mobilePriceFld = new JTextField(10);
+                    top4.add(mobilePriceFld);
                 
                 Container top5 = new Container();
                 top5.setLayout(new GridLayout(2,1));
                 top.add(top5);
                 
-                    JLabel creditLabel = new JLabel("Credit [Â£]");
+                    JLabel creditLabel = new JLabel("Credit [£]");
                     top5.add(creditLabel);
                     
                     creditFld = new JTextField(10);
@@ -204,8 +212,8 @@ public class GadgetShop implements ActionListener
                     JLabel indexLabel = new JLabel("Index");
                     indexGrid.add(indexLabel);
                     
-                    indexFld1 = new JTextField(5);
-                    indexGrid.add(indexFld1);
+                    mobileIndexFld = new JTextField(5);
+                    indexGrid.add(mobileIndexFld);
             
                 addMobileBtn = new JButton("Add Mobile");
                 addMobileBtn.addActionListener(this);
@@ -276,10 +284,10 @@ public class GadgetShop implements ActionListener
         // A try-catch method is used to catch any user input error, that occures when trying to parse an Integet or a Double.
         try{
             // Retreiving the values from the necessery text fields.
-            String model = modelFld1.getText();
-            String size = sizeFld1.getText();
-            int weight = Integer.parseInt(weightFld1.getText()); // Parsing the data as all text fields hold strings.
-            double price = Double.parseDouble(priceFld1.getText()); // Parsing the data as needed.
+            String model = mobileModelFld.getText();
+            String size = mobileSizeFld.getText();
+            int weight = Integer.parseInt(mobileWeightFld.getText()); // Parsing the data as all text fields hold strings.
+            double price = Double.parseDouble(mobilePriceFld.getText()); // Parsing the data as needed.
             int credit = Integer.parseInt(creditFld.getText()); // Parsing the data as needed.
             // Checks if the numerical values input by the user are above 0.
             if(price > 0 && weight > 0 && credit > 0){
@@ -316,7 +324,7 @@ public class GadgetShop implements ActionListener
     {
         // A try-catch method is used to catch any user input error, that occures when trying to parse an Integet or a Double.
         try{
-            int index = Integer.parseInt(indexFld1.getText()); // Parsing the data as needed.
+            int index = Integer.parseInt(mobileIndexFld.getText()); // Parsing the data as needed.
             // This if statement checks to see if the list is empty and if the index input by the user is valid.
             // If the list of gadgets is empty, there are no gadgets that can be removed from the list, so a warning message will be displayed. 
             // If the list isn't empty but the index is invalid, a warning message will be displayed. Otherwise, the gadget will be removed.
@@ -357,7 +365,7 @@ public class GadgetShop implements ActionListener
     {
         // A try-catch method is used to catch any user input error, that occures when trying to parse an Integet or a Double.
         try{
-            int index = Integer.parseInt(indexFld1.getText()); // Parsing the data as needed.
+            int index = Integer.parseInt(mobileIndexFld.getText()); // Parsing the data as needed.
             // This if statement checks to see if the list is empty, if the index is valid, and if the gadget at that index is of type <Mobile>.
             // If the list of gadgets is empty, there is no credit information that can be displayed.
             // If the index is valid, but the gadget at that index is not of type <Mobile>, the getCredit method can't be invoked.
@@ -409,7 +417,7 @@ public class GadgetShop implements ActionListener
     {
         // A try-catch method is used to catch any user input error, that occures when trying to parse an Integet.
         try{
-            int index = Integer.parseInt(indexFld1.getText()); // Parsing the data as needed.
+            int index = Integer.parseInt(mobileIndexFld.getText()); // Parsing the data as needed.
             int credit = Integer.parseInt(creditFld.getText()); // Parsing the data as needed.
             // This if statement checks to see if the list is empty, if the index is valid, if the gadget at that index is of type <Mobile>,
             // and if the cradit input by the user is valid.
@@ -469,7 +477,7 @@ public class GadgetShop implements ActionListener
         try{
             // Retrieving the necessary values from the text fields.
             String number = phoneNumberFld.getText();
-            int index = Integer.parseInt(indexFld1.getText()); // Parsing the data as needed.
+            int index = Integer.parseInt(mobileIndexFld.getText()); // Parsing the data as needed.
             // If the gadget list isn't empty, the index is valid, the gadget at that index is of type <Mobile>, and the phone number format
             // input by the user is valid, the addPhoneNumber method is called to add the number to the list.
             if(gadgets.isEmpty()){
@@ -533,7 +541,7 @@ public class GadgetShop implements ActionListener
         try{
             String number = phoneNumberFld.getText();
             int duration = Integer.parseInt(durationFld.getText()); // Parsing the data as needed.
-            int index = Integer.parseInt(indexFld1.getText()); // Parsing the data as needed.
+            int index = Integer.parseInt(mobileIndexFld.getText()); // Parsing the data as needed.
             //If the list isn't empty, the index is valid, the gadget is of type <Mobile>, the phone number list is not empty, the list 
             // contains the specified number, the duration of the call is valid, and there is enough credit, the makeCall method is invoked.
             if(gadgets.isEmpty()){
@@ -596,7 +604,7 @@ public class GadgetShop implements ActionListener
     {
         // A try-catch method is used to catch any user input error, that occures when trying to parse an Integet.
         try{
-            int index = Integer.parseInt(indexFld1.getText()); // Parsing the data as needed.
+            int index = Integer.parseInt(mobileIndexFld.getText()); // Parsing the data as needed.
             // If the gadget list isn't empty, the index is valid, the gadget is of type <Mobile>, and the phone number list is also not
             // empty, the list of phone numbers is displayed to the screen.
             if(gadgets.isEmpty()){
@@ -668,8 +676,8 @@ public class GadgetShop implements ActionListener
                     JLabel modelLabel = new JLabel("Model");
                     top1.add(modelLabel);
                     
-                    modelFld2 = new JTextField(10);
-                    top1.add(modelFld2);
+                    mp3ModelFld = new JTextField(10);
+                    top1.add(mp3ModelFld);
                 
                 Container top2 = new Container();
                 top2.setLayout(new GridLayout(2,1));
@@ -678,8 +686,8 @@ public class GadgetShop implements ActionListener
                     JLabel sizeLabel = new JLabel("Size [inches]");
                     top2.add(sizeLabel);
                     
-                    sizeFld2 = new JTextField(10);
-                    top2.add(sizeFld2);
+                    mp3SizeFld = new JTextField(10);
+                    top2.add(mp3SizeFld);
                 
                 Container top3 = new Container();
                 top3.setLayout(new GridLayout(2,1));
@@ -688,18 +696,18 @@ public class GadgetShop implements ActionListener
                     JLabel weightLabel = new JLabel("Weight [grams]");
                     top3.add(weightLabel);
                     
-                    weightFld2 = new JTextField(10);
-                    top3.add(weightFld2);
+                    mp3WeightFld = new JTextField(10);
+                    top3.add(mp3WeightFld);
                 
                 Container top4 = new Container();
                 top4.setLayout(new GridLayout(2,1));
                 top.add(top4);
                 
-                    JLabel priceLabel = new JLabel("Price [Â£]");
+                    JLabel priceLabel = new JLabel("Price [£]");
                     top4.add(priceLabel);
                     
-                    priceFld2 = new JTextField(10);
-                    top4.add(priceFld2);
+                    mp3PriceFld = new JTextField(10);
+                    top4.add(mp3PriceFld);
                 
                 Container top5 = new Container();
                 top5.setLayout(new GridLayout(2,1));
@@ -722,8 +730,8 @@ public class GadgetShop implements ActionListener
                     JLabel indexLabel = new JLabel("Index");
                     indexGrid.add(indexLabel);
                     
-                    indexFld2 = new JTextField(5);
-                    indexGrid.add(indexFld2);
+                    mp3IndexFld = new JTextField(5);
+                    indexGrid.add(mp3IndexFld);
             
                 addMP3Btn = new JButton("Add MP3");
                 addMP3Btn.addActionListener(this);
@@ -790,10 +798,10 @@ public class GadgetShop implements ActionListener
         // A try-catch method is used to catch any user input error, that occures when trying to parse an Integet or a Double.
         try{
             // Retreiving the values from the necessery text fields.
-            String model = modelFld2.getText();
-            String size = sizeFld2.getText();
-            int weight = Integer.parseInt(weightFld2.getText()); // Parsing the data as all text fields hold strings.
-            double price = Double.parseDouble(priceFld2.getText()); // Parsing the data as needed.
+            String model = mp3ModelFld.getText();
+            String size = mp3SizeFld.getText();
+            int weight = Integer.parseInt(mp3WeightFld.getText()); // Parsing the data as all text fields hold strings.
+            double price = Double.parseDouble(mp3PriceFld.getText()); // Parsing the data as needed.
             int memory = Integer.parseInt(memoryFld.getText()); // Parsing the data as needed.
             // Checks if the numerical values input by the user are above 0.
             if(price > 0 && weight > 0 && memory > 0){
@@ -831,7 +839,7 @@ public class GadgetShop implements ActionListener
     {
         // A try-catch method is used to catch any user input error, that occures when trying to parse an Integet or a Double.
         try{
-            int index = Integer.parseInt(indexFld2.getText()); // Parsing the data as needed.
+            int index = Integer.parseInt(mp3IndexFld.getText()); // Parsing the data as needed.
             // This if statement checks to see if the list is empty and if the index input by the user is valid.
             // If the list of gadgets is empty, there are no gadgets that can be removed from the list, so a warning message will be displayed. 
             // If the list isn't empty but the index is invalid, a warning message will be displayed. Otherwise, the gadget will be removed.
@@ -872,7 +880,7 @@ public class GadgetShop implements ActionListener
     {
         // A try-catch method is used to catch any user input error, that occures when trying to parse an Integet or a Double.
         try{
-            int index = Integer.parseInt(indexFld2.getText()); // Parsing the data as needed.
+            int index = Integer.parseInt(mp3IndexFld.getText()); // Parsing the data as needed.
             // This if statement checks to see if the list is empty, if the index is valid, and if the gadget at that index is of type <Mobile>.
             // If the list of gadgets is empty, there is no credit information that can be displayed.
             // If the index is valid, but the gadget at that index is not of type <MP3>, the getAvailableMemory method can't be invoked.
@@ -927,7 +935,7 @@ public class GadgetShop implements ActionListener
             // Retrieving the necessary values from the text fields.
             int size = Integer.parseInt(songSizeFld.getText()); // Parsing the data as needed.
             String title = titleFld.getText();
-            int index = Integer.parseInt(indexFld2.getText()); // Parsing the data as needed.
+            int index = Integer.parseInt(mp3IndexFld.getText()); // Parsing the data as needed.
             // If the gadget list isn't empty, the index is valid, the gadget at that index is of type <Mobile>, and the phone number format
             // input by the user is valid, the addPhoneNumber method is called to add the number to the list.
             if(gadgets.isEmpty()){
@@ -992,7 +1000,7 @@ public class GadgetShop implements ActionListener
         try{
             // Retrieving the necessary values from the text fields.
             String title = titleFld.getText();
-            int index = Integer.parseInt(indexFld2.getText()); // Parsing the data as needed.
+            int index = Integer.parseInt(mp3IndexFld.getText()); // Parsing the data as needed.
             // If the gadget list isn't empty, the index is valid, the gadget at that index is of type <Mobile>, and the phone number format
             // input by the user is valid, the addPhoneNumber method is called to add the number to the list.
             if(gadgets.isEmpty()){
@@ -1055,7 +1063,7 @@ public class GadgetShop implements ActionListener
         // A try-catch method is used to catch any user input error, that occures when trying to parse an Integet.
         try{
             // Retrieving the necessary values from the text fields.
-            int index = Integer.parseInt(indexFld2.getText()); // Parsing the data as needed.
+            int index = Integer.parseInt(mp3IndexFld.getText()); // Parsing the data as needed.
             // If the gadget list isn't empty, the index is valid, the gadget at that index is of type <Mobile>, and the phone number format
             // input by the user is valid, the addPhoneNumber method is called to add the number to the list.
             if(gadgets.isEmpty()){
@@ -1137,26 +1145,28 @@ public class GadgetShop implements ActionListener
     public void clearMobile()
     {
         // Setting all text field blank.
-        modelFld1.setText("");
-        sizeFld1.setText("");
-        weightFld1.setText("");
-        priceFld1.setText("");
+        mobileModelFld.setText("");
+        mobileSizeFld.setText("");
+        mobileWeightFld.setText("");
+        mobilePriceFld.setText("");
         creditFld.setText("");
         phoneNumberFld.setText("");
         durationFld.setText("");
+        mobileIndexFld.setText("");
     }
     
     //This method is used to clear all text fields on the mp3 frame.
     public void clearMP3()
     {
         // Setting all text field blank.
-        modelFld2.setText("");
-        sizeFld2.setText("");
-        weightFld2.setText("");
-        priceFld2.setText("");
+        mp3ModelFld.setText("");
+        mp3SizeFld.setText("");
+        mp3WeightFld.setText("");
+        mp3PriceFld.setText("");
         titleFld.setText("");
         songSizeFld.setText("");
         memoryFld.setText("");
+        mp3IndexFld.setText("");
     }
     
     public static void main(String[] args)
